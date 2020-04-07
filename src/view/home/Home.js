@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchStats } from "./_actions";
-import { StatsCard } from "../../components";
+import { StatsCard, CountriesTable, StateTable } from "../../components";
 import { Container, Row } from "reactstrap";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { loading, stats } = useSelector(state => ({
+  const { loading, stats } = useSelector((state) => ({
     loading: state.HomeReducers.loading,
-    stats: state.HomeReducers.stats
+    stats: state.HomeReducers.stats,
   }));
 
   useEffect(() => {
@@ -31,6 +31,8 @@ const Home = () => {
           )}
         </>
       )}
+      <CountriesTable />
+      <StateTable />
     </Container>
   );
 };
